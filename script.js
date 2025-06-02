@@ -13,8 +13,8 @@ const livedCities = [
   {
     name: "Harbin, China", lat: 45.75, lng: 126.65,
     clue: "Famous for its ice and snow festival.",
-    description: "Harbin is known for its Russian influence and winter festivities.",
-    images: ["images/harbin1.png", "images/harbin2.png"]
+    description: "My first destination after leaving Brasil was Harbin, one of the coldest city in China, where during winter the average temperature is -17°C, and some days I experienced -32°C. As part of the Chinese culture, they have a great respect towards the older or higher in hierarchy, where even the position of your glass when cheering had a meaning (Your glass should always be below the others, to show respect). Also, drinking alcohol is a huge part of the culture, it was normal for some people you just met to ask how many bottles of beer you can drink. This was measured in 600 mL bottles. And if you end up going for dinner with them, they will challenge you and make you drink as much as you can. Everyone gets their own bottle, to keep count, and when someone shouts ‘Ganbei’, everyone takes their short glass full of beer and drinks bottom up. I’ve seen people drinking 18 bottles of beer in a 2-hour dinner. And most of them seem to be fine after that.",
+    images: ["images/harbin.jpg", "images/harbin2.jpg"]
   },
   {
     name: "Dubai, UAE", lat: 25.20, lng: 55.27,
