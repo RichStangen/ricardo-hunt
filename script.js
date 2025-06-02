@@ -1,4 +1,8 @@
+let guessCount = 0;
+
 const map = L.map('map').setView([20, 0], 2);
+
+const victorySound = document.getElementById('victory-sound');
 
 // Add tile layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -59,9 +63,19 @@ let lastRoundCities = [];
 function getNewRoundCities() {
   let remaining = livedCities.filter(c => !guessed.has(c.name));
   if (remaining.length === 0) {
-    showModal("🏆 You found all cities!", "", null);
-    return [];
-  }
+  victorySound.play();
+  showModal(
+    "🏆 You found all cities!",
+    `You solved it in <strong>${guessCount}</strong> guesses.`,
+    () => {
+      guessed.clear();
+      guessCount = 0;
+      addMarkers(getNewRoundCities());
+    },
+    "Play Again"
+  );
+  return [];
+}
 
   const correctCity = remaining[Math.floor(Math.random() * remaining.length)];
   let options = [correctCity];
@@ -85,6 +99,7 @@ function addMarkers(cities) {
 }
 
 function handleSelection(city) {
+  guessCount++;
   const real = livedCities.find(c => c.name === city.name);
   if (real) {
     correctSound.play();
