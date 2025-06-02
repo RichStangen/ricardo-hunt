@@ -10,31 +10,31 @@ const livedCities = [
     name: "Harbin, China", lat: 45.75, lng: 126.65,
     clue: "Famous for its ice and snow festival.",
     description: "Harbin is known for its Russian influence and winter festivities.",
-    image: "images/harbin1.png"
+    images: ["images/harbin1.png", "images/harbin2.png"]
   },
   {
     name: "Dubai, UAE", lat: 25.20, lng: 55.27,
     clue: "Home to the tallest building on Earth.",
     description: "Dubai is a desert metropolis of futuristic design and luxury.",
-    image: "images/dubai1.png"
+    images: ["images/dubai1.png", "images/dubai2.png"]
   },
   {
     name: "Punta Cana, DR", lat: 18.58, lng: -68.40,
     clue: "Tropical beaches and Caribbean vibes.",
     description: "Punta Cana is a resort town in the Dominican Republic.",
-    image: "images/puntacana1.png"
+    images: ["images/puntacana1.png", "images/puntacana2.png"]
   },
   {
     name: "Cancun, Mexico", lat: 21.16, lng: -86.85,
     clue: "Mayan ruins and Spring Break parties.",
     description: "Cancun offers turquoise beaches and historical wonders.",
-    image: "images/cancun1.png"
+    images: ["images/cancun1.png", "images/cancun2.png"]
   },
   {
     name: "Sao Paulo, Brazil", lat: -23.55, lng: -46.63,
     clue: "The largest city in Brazil and South America.",
     description: "Sao Paulo is a sprawling, vibrant urban giant.",
-    image: "images/saopaulo1.png"
+    images: ["images/saopaulo1.png", "images/saopaulo2.png"]
   }
 ];
 
@@ -50,6 +50,10 @@ const wrongCities = [
 ];
 
 let guessed = new Set();
+const correctSound = document.getElementById('correct-sound');
+const wrongSound = document.getElementById('wrong-sound');
+let currentImages = [];
+let imageIndex = 0;
 let lastRoundCities = [];
 
 function getNewRoundCities() {
@@ -83,16 +87,24 @@ function addMarkers(cities) {
 function handleSelection(city) {
   const real = livedCities.find(c => c.name === city.name);
   if (real) {
+    correctSound.play();
     guessed.add(city.name);
+    currentImages = real.images;
+    imageIndex = 0;
     showModal(
       `✅ You found ${city.name}`,
       `${real.description}`,
-      () => showImage(real.image)
+      () => showGallery()
     );
   } else {
+    wrongSound.play();
     const remaining = livedCities.filter(c => !guessed.has(c.name));
     const randomCity = remaining[Math.floor(Math.random() * remaining.length)];
-    showModal("❌ Not quite!", `Clue: ${randomCity.clue}`, () => addMarkers(getNewRoundCities()));
+    showModal(
+      `❌ You chose ${city.name}`,
+      `Clue: ${randomCity.clue}`,
+      () => addMarkers(getNewRoundCities())
+    );
   }
 }
 
@@ -100,15 +112,45 @@ function showModal(title, body, actionFn) {
   const modal = document.getElementById("modal");
   const modalBody = document.getElementById("modal-body");
   const modalAction = document.getElementById("modal-action");
+  const imageNav = document.getElementById("image-nav");
 
   modal.classList.remove("hidden");
   modalBody.innerHTML = `<h2>${title}</h2><p>${body}</p>`;
-  modalAction.textContent = actionFn ? (title.startsWith("✅") ? "Show Photo" : "Keep Investigating") : "Close";
+  modalAction.textContent = actionFn ? (title.startsWith("✅") ? "Show Photos" : "Keep Investigating") : "Close";
+
+  imageNav.classList.add("hidden"); // Hide gallery
   modalAction.onclick = () => {
     modal.classList.add("hidden");
     if (actionFn) actionFn();
   };
 }
+
+function showGallery() {
+  const modal = document.getElementById("modal");
+  const imageNav = document.getElementById("image-nav");
+  const galleryImg = document.getElementById("gallery-img");
+
+  imageNav.classList.remove("hidden");
+  galleryImg.src = currentImages[imageIndex];
+
+  modal.classList.remove("hidden");
+  const modalAction = document.getElementById("modal-action");
+  modalAction.textContent = "Keep Investigating";
+  modalAction.onclick = () => {
+    modal.classList.add("hidden");
+    addMarkers(getNewRoundCities());
+  };
+}
+
+document.getElementById("prev-img").onclick = () => {
+  imageIndex = (imageIndex - 1 + currentImages.length) % currentImages.length;
+  document.getElementById("gallery-img").src = currentImages[imageIndex];
+};
+
+document.getElementById("next-img").onclick = () => {
+  imageIndex = (imageIndex + 1) % currentImages.length;
+  document.getElementById("gallery-img").src = currentImages[imageIndex];
+};
 
 function showImage(imagePath) {
   showModal("", `<img src="${imagePath}" style="width:100%">`, () => addMarkers(getNewRoundCities()));
