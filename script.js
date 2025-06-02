@@ -123,7 +123,7 @@ function handleSelection(city) {
   }
 }
 
-function showModal(title, body, actionFn) {
+function showModal(title, body, actionFn, actionText) {
   const modal = document.getElementById("modal");
   const modalBody = document.getElementById("modal-body");
   const modalAction = document.getElementById("modal-action");
@@ -131,7 +131,9 @@ function showModal(title, body, actionFn) {
 
   modal.classList.remove("hidden");
   modalBody.innerHTML = `<h2>${title}</h2><p>${body}</p>`;
-  modalAction.textContent = actionFn ? (title.startsWith("✅") ? "Show Photos" : "Keep Investigating") : "Close";
+  modalAction.textContent = actionFn
+  ? actionText || (title.startsWith("✅") ? "Show Photos" : "Keep Investigating")
+  : "Close";
 
   imageNav.classList.add("hidden"); // Hide gallery
   modalAction.onclick = () => {
