@@ -1,37 +1,52 @@
 body {
-  font-family: sans-serif;
-  background: #000;
-  color: #fff;
+  margin: 0;
+  font-family: monospace;
+  background: #111;
+  color: white;
   text-align: center;
-  padding: 2rem;
 }
 
-.game-container {
-  max-width: 600px;
+h1 {
+  margin: 1rem 0;
+}
+
+#map {
+  height: 80vh;
+  width: 90vw;
   margin: auto;
-  background: #222;
-  padding: 1.5rem;
-  border-radius: 10px;
+  border: 2px solid #333;
 }
 
-#city-options button {
-  margin: 0.5rem;
-  padding: 0.75rem 1.5rem;
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #222;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+}
+
+#modal-action {
+  margin-top: 1rem;
+  padding: 0.75rem;
   font-size: 1rem;
   background: #444;
   color: white;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
-}
-
-#city-options button:hover {
-  background: #666;
-}
-
-#message-box img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
-  margin-top: 1rem;
 }
