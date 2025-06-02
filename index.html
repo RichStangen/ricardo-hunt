@@ -2,17 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>City Hunt</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
 </head>
 <body>
-  <div class="game-container">
-    <h1>City Hunt</h1>
-    <div id="message-box"></div>
-    <div id="city-options"></div>
-    <button id="next-btn">Choose Destination</button>
+  <h1>🌍 Carmen Sandiego: City Hunt</h1>
+  <div id="map"></div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="modal-close">&times;</span>
+      <div id="modal-body"></div>
+      <button id="modal-action"></button>
+    </div>
   </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
