@@ -156,8 +156,6 @@ function showImage(imagePath) {
   showModal("", `<img src="${imagePath}" style="width:100%">`, () => addMarkers(getNewRoundCities()));
 }
 
-document.getElementById("modal-close").onclick = () => {
-  document.getElementById("modal").classList.add("hidden");
-};
+
 
 addMarkers(getNewRoundCities());
