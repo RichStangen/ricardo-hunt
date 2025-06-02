@@ -5,6 +5,8 @@
   <title>City Hunt</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <audio id="correct-sound" src="sounds/correct.mp3"></audio>
+  <audio id="wrong-sound" src="sounds/wrong.mp3"></audio>
 </head>
 <body>
   <h1>🌍 Carmen Sandiego: City Hunt</h1>
@@ -12,9 +14,13 @@
 
   <div id="modal" class="modal hidden">
     <div class="modal-content">
-      <span id="modal-close">&times;</span>
       <div id="modal-body"></div>
-      <button id="modal-action"></button>
+<div id="image-nav" class="hidden">
+  <button id="prev-img">←</button>
+  <img id="gallery-img" src="" />
+  <button id="next-img">→</button>
+</div>
+<button id="modal-action"></button>
     </div>
   </div>
 
