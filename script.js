@@ -162,7 +162,7 @@ function showGallery() {
   const galleryImg = document.getElementById("gallery-img");
 
   // Clear previous modal text content
-  modalBody.innerHTML = `<img id="gallery-img" src="${currentImages[imageIndex]}" style="width:100%; max-height:400px; object-fit:contain;">`;
+  modalBody.innerHTML = `<img id="gallery-img" src="${currentImages[imageIndex]}" style="width:100%; max-height:600px; object-fit:contain;">`;
 
   imageNav.classList.remove("hidden");
   modal.classList.remove("hidden");
