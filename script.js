@@ -144,18 +144,32 @@ function showModal(title, body, actionFn, actionText) {
 
 function showGallery() {
   const modal = document.getElementById("modal");
+  const modalBody = document.getElementById("modal-body");
   const imageNav = document.getElementById("image-nav");
   const galleryImg = document.getElementById("gallery-img");
 
-  imageNav.classList.remove("hidden");
-  galleryImg.src = currentImages[imageIndex];
+  // Clear previous modal text content
+  modalBody.innerHTML = `<img id="gallery-img" src="${currentImages[imageIndex]}" style="width:100%; max-height:400px; object-fit:contain;">`;
 
+  imageNav.classList.remove("hidden");
   modal.classList.remove("hidden");
+
   const modalAction = document.getElementById("modal-action");
   modalAction.textContent = "Keep Investigating";
   modalAction.onclick = () => {
     modal.classList.add("hidden");
     addMarkers(getNewRoundCities());
+  };
+
+  // Re-bind arrows now that gallery-img is regenerated
+  document.getElementById("prev-img").onclick = () => {
+    imageIndex = (imageIndex - 1 + currentImages.length) % currentImages.length;
+    document.getElementById("gallery-img").src = currentImages[imageIndex];
+  };
+
+  document.getElementById("next-img").onclick = () => {
+    imageIndex = (imageIndex + 1) % currentImages.length;
+    document.getElementById("gallery-img").src = currentImages[imageIndex];
   };
 }
 
