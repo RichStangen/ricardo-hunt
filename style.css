@@ -10,6 +10,19 @@ h1 {
   margin: 1rem 0;
 }
 
+#stats-box {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.8);
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-family: sans-serif;
+  font-size: 14px;
+  z-index: 999;
+}
+
 #map {
   height: 80vh;
   width: 90vw;
