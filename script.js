@@ -1,4 +1,5 @@
 let guessCount = 0;
+let wrongGuessCount = 0;
 
 const map = L.map('map').setView([20, 0], 2);
 
@@ -65,15 +66,17 @@ function getNewRoundCities() {
   if (remaining.length === 0) {
   victorySound.play();
   showModal(
-    "🏆 You found all cities!",
-    `You solved it in <strong>${guessCount}</strong> guesses.`,
-    () => {
-      guessed.clear();
-      guessCount = 0;
-      addMarkers(getNewRoundCities());
-    },
-    "Play Again"
-  );
+  "🏆 You found all cities!",
+  `You solved it in <strong>${guessCount}</strong> guesses.`,
+  () => {
+    guessed.clear();
+    guessCount = 0;
+    wrongGuessCount = 0;
+    updateStats();
+    addMarkers(getNewRoundCities());
+  },
+  "Play Again"
+);
   return [];
 }
 
@@ -100,10 +103,12 @@ function addMarkers(cities) {
 
 function handleSelection(city) {
   guessCount++;
+
   const real = livedCities.find(c => c.name === city.name);
   if (real) {
     correctSound.play();
     guessed.add(city.name);
+    updateStats();
     currentImages = real.images;
     imageIndex = 0;
     showModal(
@@ -113,6 +118,8 @@ function handleSelection(city) {
     );
   } else {
     wrongSound.play();
+    wrongGuessCount++;
+    updateStats();
     const remaining = livedCities.filter(c => !guessed.has(c.name));
     const randomCity = remaining[Math.floor(Math.random() * remaining.length)];
     showModal(
@@ -121,6 +128,12 @@ function handleSelection(city) {
       () => addMarkers(getNewRoundCities())
     );
   }
+}
+
+function updateStats() {
+  document.getElementById("found-count").textContent = guessed.size;
+  document.getElementById("total-guesses").textContent = guessCount;
+  document.getElementById("wrong-guesses").textContent = wrongGuessCount;
 }
 
 function showModal(title, body, actionFn, actionText) {
