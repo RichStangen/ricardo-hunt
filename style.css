@@ -11,9 +11,9 @@ h1 {
 }
 
 #stats-box {
- position: absolute;
-      top: 10px;
-      left: 50px;
+ position: fixed;
+      top: 80px;
+      right: 90px;
       background: rgba(0,0,0,0.8);
       padding: 10px;
       border: 2px solid #fdf6e3;
