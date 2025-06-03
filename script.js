@@ -13,31 +13,31 @@ const livedCities = [
   {
     name: "Harbin, China", lat: 45.75, lng: 126.65,
     clue: "Famous for its ice and snow festival.",
-    description: "My first destination after leaving Brasil was Harbin, one of the coldest city in China, where during winter the average temperature is -17°C, and some days I experienced -32°C. As part of the Chinese culture, they have a great respect towards the older or higher in hierarchy, where even the position of your glass when cheering had a meaning (Your glass should always be below the others, to show respect). Also, drinking alcohol is a huge part of the culture, it was normal for some people you just met to ask how many bottles of beer you can drink. This was measured in 600 mL bottles. And if you end up going for dinner with them, they will challenge you and make you drink as much as you can. Everyone gets their own bottle, to keep count, and when someone shouts ‘Ganbei’, everyone takes their short glass full of beer and drinks bottom up. I’ve seen people drinking 18 bottles of beer in a 2-hour dinner. And most of them seem to be fine after that.",
+    description: "Here was my first destination after leaving Brasil, one of the coldest cities in China, where during winter the average temperature is -17°C, and some days I experienced -32°C. As part of the Chinese culture, they have a great respect towards the older or higher in hierarchy, where even the position of your glass when cheering had a meaning. (Your glass should always be below the others, to show respect). Also, drinking alcohol is a huge part of their culture, it was normal for some people you just met to ask how many bottles of beer you can drink. This was measured in 600 mL bottles. And if you end up going for dinner with them, they will challenge you and make you drink as much as you can. Everyone gets their own bottles, to keep count, and when someone shouts ‘Ganbei’ (which means Cheers or bottoms up), everyone takes their short glass full of beer and drinks bottoms up. I’ve seen people drinking 18 bottles of beer in a 2-hour dinner. And most of them seem to be fine after that.",
     images: ["images/harbin.jpg", "images/harbin2.jpg"]
   },
   {
     name: "Dubai, UAE", lat: 25.20, lng: 55.27,
     clue: "Home to the tallest building on Earth.",
-    description: "Dubai is a desert metropolis of futuristic design and luxury.",
+    description: "I was fortunate enough to work at Jumeirah Beach Hotel there, and the restaurant I was working at was on the beach in front of the Burj al Arab. Every day I would see that iconic building, and even after 3 years seen it, I would still find it amazing. Dubai is well known for the manmade landmarks: Palm Jumeirah, Burj Khalifa, the biggest mall in the world, the water canal, etc. For me it’s a place of an amazing diverse culture where 90% of the population are foreign and are there just to work, most of them coming from India, Bangladesh, Pakistan and Philippines, so for me I learned more from those cultures than the local culture, especially because on the restaurant I worked most of the staff were from those countries. I remember one day I was in a grocery store, an Arabic man entered speaking Arabic, and no one from the store was able to understand him.",
     images: ["images/dubai1.png", "images/dubai2.png"]
   },
   {
     name: "Punta Cana, DR", lat: 18.58, lng: -68.40,
     clue: "Tropical beaches and Caribbean vibes.",
-    description: "Punta Cana is a resort town in the Dominican Republic.",
+    description: "The Dominican Republic was the first country of Spanish language I lived in, and believe it or not, for someone speaking Portuguese was quite the challenge. Between their culture and how fast they talk, I am still impressed by how I was able to go day by day. This city is known for its big all-inclusive resorts. The hotel where I was the Executive Sous Chef had 500 rooms (not so big compared to other hotels), 8 restaurants, 1 coffee shop, and a 24-hour Room Service. If you are hungry at any time, you could find food somewhere in the resort. Which means that a LOT needed to be prepared daily. The kitchen had 200 cooks, plus 50 stewards (They were in charge of cleaning the kitchen), and on average per week, the hotel consumes: 1000 kg of potatoes, 300kg of filet mignon, and around 200 kg of lobster tail (YES; Lobster was included on the All-Inclusive package, you should go see it for yourself!) ",
     images: ["images/puntacana1.png", "images/puntacana2.png"]
   },
   {
     name: "Cancun, Mexico", lat: 21.16, lng: -86.85,
     clue: "Mayan ruins and Spring Break parties.",
-    description: "Cancun offers turquoise beaches and historical wonders.",
+    description: "Every other city I went to live because of work, here I came because of love. My now wife was transferred here, and after spending the pandemic far away (She was in Mexico, I was in Sao Paulo). We finally started living together in 2020. Cancun is well known for tourism, its beaches, and All-Inclusive resorts. Besides being a very young city, with only 55 years old, and a small city, with only 900 thousand inhabitants, it’s the most visited city in Latin America, with more than 16 million visitors every year. I also had the opportunity to work for an 810-room all-inclusive resort as Executive Chef, which helped me to understand a bit more about the Mexican culture and their food. For the locals, corn tortilla is the base for any meal, and they have to eat it every day (yes, it is a need, even with soup, they have to roll some tortillas to accompany it). I also found out that most of the Mexican food we see worldwide is actually Tex-Mex and the locals do not eat it. So forget about hard shell tacos, shredded lettuce, and refried beans, here most of the tacos are just corn tortilla (soft) and meat, which could be pork or beef, from different parts of the animal. The sauces are served on the side, and for them, nothing is spicy. (But you should never trust them)",
     images: ["images/cancun1.png", "images/cancun2.png"]
   },
   {
     name: "Sao Paulo, Brazil", lat: -23.55, lng: -46.63,
     clue: "The largest city in Brazil and South America.",
-    description: "Sao Paulo is a sprawling, vibrant urban giant.",
+    description: "I was born and raised here. Besides the insecurity, traffic, and the number of people, I love this city. With around 12 million inhabitants, the traffic is crazy; not only are there millions of cars, but there are even more motorcycles. And they always drive between cars, making it more insane, but I can guarantee that we don’t drive that badly (Dominicans win that battle).Brasil has always welcomed people from different parts of the world, the biggest Japanese community outside Japan is in São Paulo. The biggest Italian community? São Paulo also. With so many immigrants, you see their influence everywhere, in architecture, music, and food. Making São Paulo a place where you can find all types of restaurants available at any time, and really good food. My favourites as must-tries in Brazilian cuisine: Pão de Queijo (Cassava Cheese Bread), Coxinha (Chicken croquette), Feijoada (Black beans and pork meat), Pastel (Deep-fried dough with different fillings), and many more.",
     images: ["images/saopaulo1.png", "images/saopaulo2.png"]
   }
 ];
